@@ -40,7 +40,6 @@ public class Employee {
   @OneToMany(
       mappedBy = "manager",
       cascade = CascadeType.ALL,
-      orphanRemoval = true,
       fetch = FetchType.LAZY)
   private List<Intern> interns = new ArrayList<>();
 }

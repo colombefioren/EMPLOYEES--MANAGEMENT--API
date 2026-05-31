@@ -1,6 +1,5 @@
 package org.coco.jpa.repository.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Email;
@@ -37,6 +36,6 @@ public class Intern {
   private Boolean isRemunerate = false;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "manager_id", nullable = false)
+  @JoinColumn(name = "manager_id")
   private Employee manager;
 }
