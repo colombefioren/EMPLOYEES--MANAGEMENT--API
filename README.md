@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ POJA JPA — Employee & Intern API
+# ⚡ Employee & Intern API
 
 **Serverless HR Back-End · Spring Boot 3 · AWS Lambda · PostgreSQL**
 
