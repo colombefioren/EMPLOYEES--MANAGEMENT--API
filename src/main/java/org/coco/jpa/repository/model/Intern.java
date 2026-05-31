@@ -37,7 +37,6 @@ public class Intern {
   private Boolean isRemunerate = false;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "manager_id")
-  @JsonBackReference
+  @JoinColumn(name = "manager_id", nullable = false)
   private Employee manager;
 }
