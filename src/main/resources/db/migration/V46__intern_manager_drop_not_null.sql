@@ -1,0 +1,2 @@
+ALTER TABLE intern
+    ALTER COLUMN manager_id DROP NOT NULL;
