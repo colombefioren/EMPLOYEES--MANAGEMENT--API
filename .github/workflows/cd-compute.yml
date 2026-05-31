@@ -46,6 +46,12 @@ jobs:
               (github.ref == 'refs/heads/prod') && secrets.PROD_SPRING_DATASOURCE_URL ||
               (github.ref == 'refs/heads/preprod') && secrets.PREPROD_SPRING_DATASOURCE_URL
               }}
+      FRONT_URL: ${{
+              (github.event_name == 'pull_request' && github.base_ref == 'prod') && secrets.PROD_FRONT_URL ||
+              (github.event_name == 'pull_request' && github.base_ref == 'preprod') && secrets.PREPROD_FRONT_URL ||
+              (github.ref == 'refs/heads/prod') && secrets.PROD_FRONT_URL ||
+              (github.ref == 'refs/heads/preprod') && secrets.PREPROD_FRONT_URL
+              }}
 
     steps:
       - uses: actions/checkout@v4.1.6
