@@ -37,9 +37,6 @@ public class Employee {
   @Column(name = "is_active")
   private Boolean isActive = true;
 
-  @OneToMany(
-      mappedBy = "manager",
-      cascade = CascadeType.ALL,
-      fetch = FetchType.LAZY)
+  @OneToMany(mappedBy = "manager", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
   private List<Intern> interns = new ArrayList<>();
 }
