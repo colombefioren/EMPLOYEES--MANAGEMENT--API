@@ -32,6 +32,7 @@ public class InternController {
       @RequestParam(defaultValue = "ASC") String _order,
       @RequestParam(required = false) String department,
       @RequestParam(required = false) Boolean isRemunerate,
+      @RequestParam(required = false) Long managerId,
       HttpServletResponse response) {
 
     int page = _start / (_end - _start);
@@ -41,8 +42,8 @@ public class InternController {
     String sortField = (_sort != null && !_sort.isEmpty()) ? _sort : "id";
     Pageable pageable = PageRequest.of(page, size, Sort.by(direction, sortField));
 
-    List<Intern> interns = internService.findAllByFilters(department, isRemunerate, null, pageable);
-    long total = internService.countByFilters(department, isRemunerate, null);
+    List<Intern> interns = internService.findAllByFilters(department, isRemunerate, managerId, pageable);
+    long total = internService.countByFilters(department, isRemunerate, managerId);
 
     response.setHeader("X-Total-Count", String.valueOf(total));
     response.setHeader("Access-Control-Expose-Headers", "X-Total-Count");
