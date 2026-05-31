@@ -63,6 +63,7 @@ class EmployeeServiceTest {
   void create_should_set_is_active_default_when_null() {
     var emp = new Employee();
     emp.setFirstName("Jane");
+    emp.setIsActive(null);
     when(employeeRepository.save(any())).thenAnswer(inv -> inv.getArgument(0));
 
     var result = employeeService.create(emp);

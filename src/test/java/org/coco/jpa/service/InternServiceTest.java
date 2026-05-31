@@ -76,6 +76,7 @@ class InternServiceTest {
   void create_should_set_is_remunerate_default_when_null() {
     var intern = new Intern();
     intern.setFirstName("Bob");
+    intern.setIsRemunerate(null);
     when(internRepository.save(any())).thenAnswer(inv -> inv.getArgument(0));
 
     var result = internService.create(intern);
