@@ -1,4 +1,4 @@
-package org.coco.jpa.model;
+package org.coco.jpa.repository.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -10,6 +10,6 @@ import org.coco.jpa.PojaGenerated;
 @Entity
 @Getter
 @Setter
-public class Dummy {
+public class DummyUuid {
   @Id private String id;
 }
