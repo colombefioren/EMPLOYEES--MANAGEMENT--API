@@ -1,6 +1,8 @@
 package org.coco.jpa.repository.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import java.math.BigDecimal;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +16,18 @@ public class Employee {
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
   private Long id;
 
+  @NotBlank
   @Column(nullable = false, name = "first_name")
   private String firstName;
+
+  @Column(unique = true)
+  private String email;
+
+  @Enumerated(EnumType.STRING)
+  private Department department;
+
+  private BigDecimal salary;
+
+  @Column(name = "is_active")
+  private Boolean isActive = true;
 }
