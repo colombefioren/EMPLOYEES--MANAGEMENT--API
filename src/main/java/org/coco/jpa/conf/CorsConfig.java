@@ -1,8 +1,8 @@
 package org.coco.jpa.conf;
 
-import javax.annotation.Nonnull;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.lang.NonNull;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -13,7 +13,7 @@ public class CorsConfig implements WebMvcConfigurer {
   private String allowedOrigins;
 
   @Override
-  public void addCorsMappings(@Nonnull CorsRegistry registry) {
+  public void addCorsMappings(@NonNull CorsRegistry registry) {
     if (allowedOrigins == null || allowedOrigins.isBlank()) {
       registry
           .addMapping("/**")
