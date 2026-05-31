@@ -37,7 +37,9 @@ public class EmployeeService {
 
   @Transactional
   public Employee update(Long id, Employee employee) {
+    Employee existing = findById(id);
     employee.setId(id);
+    employee.setInterns(existing.getInterns());
     return employeeRepository.save(employee);
   }
 

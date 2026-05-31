@@ -42,7 +42,8 @@ public class InternController {
     String sortField = (_sort != null && !_sort.isEmpty()) ? _sort : "id";
     Pageable pageable = PageRequest.of(page, size, Sort.by(direction, sortField));
 
-    List<Intern> interns = internService.findAllByFilters(department, isRemunerate, managerId, pageable);
+    List<Intern> interns =
+        internService.findAllByFilters(department, isRemunerate, managerId, pageable);
     long total = internService.countByFilters(department, isRemunerate, managerId);
 
     response.setHeader("X-Total-Count", String.valueOf(total));
