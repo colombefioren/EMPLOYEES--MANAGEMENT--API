@@ -1,17 +1,18 @@
 package org.coco.jpa.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 import lombok.Getter;
 import lombok.Setter;
+import org.coco.jpa.model.validation.ValidInternSalary;
 
 @Entity
 @Getter
 @Setter
 @Table(name = "intern")
+@ValidInternSalary
 public class Intern {
 
   @Id
@@ -29,7 +30,6 @@ public class Intern {
   @Enumerated(EnumType.STRING)
   private Department department;
 
-  @DecimalMin(value = "100.0", message = "Salary must be at least 100? if remunerated")
   private BigDecimal salary;
 
   @Column(name = "is_remunerate")
