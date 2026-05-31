@@ -1,14 +1,12 @@
 package org.coco.jpa.repository.dao;
 
 import jakarta.persistence.EntityManager;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import org.coco.jpa.model.Department;
 import org.coco.jpa.model.Employee;
