@@ -1,4 +1,4 @@
-package org.coco.jpa.repository.model;
+package org.coco.jpa.model;
 
 public enum Department {
   IT,

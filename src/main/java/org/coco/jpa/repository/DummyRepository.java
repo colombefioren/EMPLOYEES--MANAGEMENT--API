@@ -2,7 +2,7 @@ package org.coco.jpa.repository;
 
 import java.util.List;
 import org.coco.jpa.PojaGenerated;
-import org.coco.jpa.repository.model.Dummy;
+import org.coco.jpa.model.Dummy;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
