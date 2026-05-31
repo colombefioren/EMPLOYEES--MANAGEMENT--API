@@ -26,12 +26,12 @@
 
 | Layer | URL |
 |-------|-----|
-| **API** | [`https://z47eezll5rypxm7uodskg2nma40pdcwz.lambda-url.eu-west-3.on.aws`](https://z47eezll5rypxm7uodskg2nma40pdcwz.lambda-url.eu-west-3.on.aws) |
+| **API** | [`https://cvsnvjrn6rftkml3hrt673n5qe0geobn.lambda-url.eu-west-3.on.aws`](https://cvsnvjrn6rftkml3hrt673n5qe0geobn.lambda-url.eu-west-3.on.aws) |
 | **Admin UI** | [`https://employees-admin-mauve.vercel.app`](https://employees-admin-mauve.vercel.app) |
 
 ```sh
 # Quick health check
-curl https://z47eezll5rypxm7uodskg2nma40pdcwz.lambda-url.eu-west-3.on.aws/ping
+curl https://cvsnvjrn6rftkml3hrt673n5qe0geobn.lambda-url.eu-west-3.on.aws/ping
 # → pong
 ```
 
