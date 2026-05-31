@@ -1,6 +1,5 @@
 package org.coco.jpa.repository.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Email;
@@ -38,7 +37,10 @@ public class Employee {
   @Column(name = "is_active")
   private Boolean isActive = true;
 
-  @OneToMany(mappedBy = "manager", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-  @JsonManagedReference
+  @OneToMany(
+      mappedBy = "manager",
+      cascade = CascadeType.ALL,
+      orphanRemoval = true,
+      fetch = FetchType.LAZY)
   private List<Intern> interns = new ArrayList<>();
 }
