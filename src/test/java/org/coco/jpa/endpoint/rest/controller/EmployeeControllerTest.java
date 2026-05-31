@@ -55,6 +55,24 @@ class EmployeeControllerTest {
   }
 
   @Test
+  void get_all_employees_should_handle_sort_param() throws Exception {
+    var emp = new Employee();
+    emp.setId(2L);
+    var dto = EmployeeDto.builder().id(2L).build();
+
+    when(employeeService.findAllByFilters(any(), any(), any(), any(Pageable.class)))
+        .thenReturn(List.of(emp));
+    when(employeeService.countByFilters(any(), any(), any())).thenReturn(1L);
+    when(employeeMapper.toRest(emp)).thenReturn(dto);
+
+    mockMvc
+        .perform(get("/employees?_sort=firstName&_order=DESC"))
+        .andExpect(status().isOk())
+        .andExpect(header().string("X-Total-Count", "1"))
+        .andExpect(jsonPath("$[0].id").value(2));
+  }
+
+  @Test
   void get_employees_by_ids_should_return_list() throws Exception {
     var emp = new Employee();
     emp.setId(1L);

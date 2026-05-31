@@ -50,6 +50,24 @@ class InternControllerTest {
   }
 
   @Test
+  void get_all_interns_should_handle_sort_param() throws Exception {
+    var intern = new Intern();
+    intern.setId(2L);
+    var dto = InternDto.builder().id(2L).build();
+
+    when(internService.findAllByFilters(any(), any(), any(), any(Pageable.class)))
+        .thenReturn(List.of(intern));
+    when(internService.countByFilters(any(), any(), any())).thenReturn(1L);
+    when(internMapper.toRest(intern)).thenReturn(dto);
+
+    mockMvc
+        .perform(get("/interns?_sort=firstName&_order=DESC"))
+        .andExpect(status().isOk())
+        .andExpect(header().string("X-Total-Count", "1"))
+        .andExpect(jsonPath("$[0].id").value(2));
+  }
+
+  @Test
   void get_interns_by_ids_should_return_list() throws Exception {
     var intern = new Intern();
     intern.setId(1L);
