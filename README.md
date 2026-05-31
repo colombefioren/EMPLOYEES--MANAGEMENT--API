@@ -18,12 +18,6 @@
 
 > Full CRUD REST API for managing employees and interns, deployed serverlessly on AWS Lambda with PostgreSQL on [Neon](https://neon.tech).
 
----
-
-[![CI](https://github.com/colombefioren/POJA--FOURTH-JPA/actions/workflows/ci.yml/badge.svg)](https://github.com/colombefioren/POJA--FOURTH-JPA/actions/workflows/ci.yml)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-
-</div>
 
 ---
 
@@ -48,9 +42,7 @@ curl https://z47eezll5rypxm7uodskg2nma40pdcwz.lambda-url.eu-west-3.on.aws/ping
 |-------|-------|
 | **Runtime** | Java 21 · Spring Boot 3.2.2 · Spring Data JPA · Hibernate 6 |
 | **Database** | PostgreSQL ([Neon](https://neon.tech) serverless) · Flyway 9.22 |
-| **Infra** | AWS Lambda (serverless) · AWS SES · SQS · EventBridge · S3 |
 | **Frontend** | [React-Admin 5](https://marmelab.com/react-admin/) · TypeScript · Material UI · hosted on Vercel |
-| **CI/CD** | GitHub Actions — test, lint, auto-deploy on `preprod`/`prod` push |
 
 ---
 
@@ -139,25 +131,10 @@ SPRING_DATASOURCE_USERNAME=admin
 SPRING_DATASOURCE_PASSWORD=secret
 FRONT_URL=http://localhost:5173
 ```
-## 🏗️ Project Layout
-
-```
-src/main/java/org/coco/jpa/
-├── endpoint/rest/controller/   # EmployeeController, InternController
-├── model/                      # Employee, Intern, Department(enums)
-├── repository/                 # JPA repositories + Criteria DAOs
-├── service/                    # Business logic
-├── conf/                       # CORS, ObjectMapper, Request logging
-├── mail/                       # AWS SES email service
-└── handler/LambdaHandler.java  # AWS Lambda entry point
-
-src/main/resources/db/migration/  # Flyway SQL migrations
-```
-
 ---
 
 <div align="center">
 
-**Built with [POJA](https://poja.io) · Java · Spring Boot · ❤️**
+**Built with [POJA](https://poja.io) ❤️**
 
 </div>
