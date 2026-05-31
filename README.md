@@ -18,6 +18,7 @@
 
 > Full CRUD REST API for managing employees and interns, deployed serverlessly on AWS Lambda with PostgreSQL on [Neon](https://neon.tech).
 
+</div>
 
 ---
 
