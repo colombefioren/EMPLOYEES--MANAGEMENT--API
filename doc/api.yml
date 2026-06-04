@@ -1,0 +1,499 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /interns/{id}:
+    get:
+      tags:
+        - intern-controller
+      operationId: getInternById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/InternDto'
+    put:
+      tags:
+        - intern-controller
+      operationId: updateIntern
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Intern'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/InternDto'
+    delete:
+      tags:
+        - intern-controller
+      operationId: deleteIntern
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: OK
+    patch:
+      tags:
+        - intern-controller
+      operationId: patchIntern
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: object
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/InternDto'
+  /employees/{id}:
+    get:
+      tags:
+        - employee-controller
+      operationId: getEmployeeById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/EmployeeDto'
+    put:
+      tags:
+        - employee-controller
+      operationId: updateEmployee
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/EmployeeDto'
+    delete:
+      tags:
+        - employee-controller
+      operationId: deleteEmployee
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: OK
+    patch:
+      tags:
+        - employee-controller
+      operationId: patchEmployee
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: object
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/EmployeeDto'
+  /interns:
+    get:
+      tags:
+        - intern-controller
+      operationId: getAllInterns_1
+      parameters:
+        - name: _start
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: _end
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 10
+        - name: _sort
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: _order
+          in: query
+          required: false
+          schema:
+            type: string
+            default: ASC
+        - name: department
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: isRemunerate
+          in: query
+          required: false
+          schema:
+            type: boolean
+        - name: managerId
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InternDto'
+    post:
+      tags:
+        - intern-controller
+      operationId: createIntern
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Intern'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/InternDto'
+  /employees:
+    get:
+      tags:
+        - employee-controller
+      operationId: getAllEmployees_1
+      parameters:
+        - name: _start
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: _end
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 10
+        - name: _sort
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: _order
+          in: query
+          required: false
+          schema:
+            type: string
+            default: ASC
+        - name: department
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: q
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: isActive
+          in: query
+          required: false
+          schema:
+            type: boolean
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmployeeDto'
+    post:
+      tags:
+        - employee-controller
+      operationId: createEmployee
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/EmployeeDto'
+  /ping:
+    get:
+      tags:
+        - ping-controller
+      operationId: ping
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+  /interns/manager/{managerId}:
+    get:
+      tags:
+        - intern-controller
+      operationId: getInternsByManager
+      parameters:
+        - name: managerId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InternDto'
+  /health/email:
+    get:
+      tags:
+        - health-email-controller
+      operationId: send_emails
+      parameters:
+        - name: to
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+  /health/db:
+    get:
+      tags:
+        - health-db-controller
+      operationId: dummyTable_should_not_be_empty
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+components:
+  schemas:
+    Employee:
+      required:
+        - firstName
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        email:
+          type: string
+        department:
+          type: string
+          enum:
+            - IT
+            - RH
+            - Marketing
+            - Finance
+        salary:
+          minimum: 1500.0
+          exclusiveMinimum: false
+          type: number
+        isActive:
+          type: boolean
+        interns:
+          type: array
+          items:
+            $ref: '#/components/schemas/Intern'
+    Intern:
+      required:
+        - firstName
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        email:
+          type: string
+        department:
+          type: string
+          enum:
+            - IT
+            - RH
+            - Marketing
+            - Finance
+        salary:
+          type: number
+        isRemunerate:
+          type: boolean
+        manager:
+          $ref: '#/components/schemas/Employee'
+    InternDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        email:
+          type: string
+        department:
+          type: string
+          enum:
+            - IT
+            - RH
+            - Marketing
+            - Finance
+        salary:
+          type: number
+        isRemunerate:
+          type: boolean
+        managerId:
+          type: integer
+          format: int64
+    EmployeeDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        email:
+          type: string
+        department:
+          type: string
+          enum:
+            - IT
+            - RH
+            - Marketing
+            - Finance
+        salary:
+          type: number
+        isActive:
+          type: boolean
